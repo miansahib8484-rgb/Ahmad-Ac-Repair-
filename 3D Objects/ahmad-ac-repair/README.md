@@ -125,9 +125,115 @@ editorial cards (category badge, meta row, author avatar, hover zoom) throughout
 
 ## 🚀 Local Preview
 
-Just open `index.html` in a browser — no build step required. For clean routing between
-pages, you can also serve the folder with any static server, e.g.:
+⚠️ **Important**: since navigation links are now clean URLs (`/services`, not
+`services.html`), simply double-clicking `index.html` to open it as a `file://` page will
+break every internal link — the homepage will load, but clicking Home/Services/Contact/etc.
+will 404, because `file://` has no server to rewrite `/services` back to `services.html`.
+A plain static server like `python3 -m http.server` has the same problem — it doesn't
+know about `vercel.json`'s `cleanUrls` rule either.
+
+To preview the site locally **with working navigation**, use the Vercel CLI, which reads
+`vercel.json` and replicates the real deployed behavior:
 
 ```bash
-python3 -m http.server 8000
+npm i -g vercel
+vercel dev
 ```
+
+Then open the local URL it prints (usually `http://localhost:3000`) — every link will
+work exactly as it will on the live Vercel deployment.
+
+If you just want to eyeball a single page's design without clicking through the site,
+opening it directly in a browser is still fine — only cross-page navigation needs the
+Vercel dev server.
+
+## 🔍 SEO Implementation (On-Page, Technical, Schema, AEO/GEO/AIO)
+
+### Keyword strategy — honest, filtered, deduplicated
+The keyword lists you provided were **strictly filtered for relevance**. Kept: every
+genuine AC / refrigerator / washing-machine repair term (English + Arabic), brand names
+(LG, Samsung, Gree, Midea, Daewoo, Panasonic, Ariston...), brand error codes (high-intent
+troubleshooting searches like "gree e1 error code"), and Riyadh/near-me locality terms.
+**Removed** as unrelated to this business: home/villa cleaning, water-tank cleaning,
+carpet/pool cleaning, car AC repair, TV/screen repair, oven repair, vacuum-cleaner repair,
+and dishwasher-specific terms — including these would misrepresent services actually
+offered. Final banks (deduplicated): ~498 EN + ~297 AR AC keywords, 120 EN + 117 AR
+refrigerator keywords, 118 EN + 114 AR washing-machine keywords (fridge/washer banks were
+topped up with legitimate brand+issue+locality combinations since the source lists had
+fewer raw terms in those two categories).
+
+Every page carries **100+ keywords in English and 100+ in Arabic** in a "Popular
+Searches" block near the footer (`.kw-cloud` in `styles.css`) — English chips under the
+English content, Arabic chips under the Arabic content, never mixed.
+
+### On-page SEO
+- Unique, keyword-led `<title>` and meta description per page (all 19 pages)
+- One `<h1>` per page with the primary keyword; consistent H2/H3 hierarchy
+- Keyword placement in title, H1, first paragraph, meta description, and body copy
+- Internal linking: Home ↔ Services ↔ each service page ↔ Contact, Blog ↔ Services
+- Descriptive image `alt` text throughout (audited — zero missing/empty)
+- `loading="lazy"` on every below-the-fold image (logo and the home hero image stay
+  eager since they're above the fold)
+- FAQ sections with genuine customer questions on the FAQ page and every service page
+
+### Technical SEO
+- `robots.txt` — allows all standard crawlers **and** explicitly allows AI/LLM crawlers
+  (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.) for GEO/AEO visibility
+- `sitemap.xml` — all 19 pages with priority/changefreq
+- `llms.txt` — the emerging llms.txt standard: a plain-language summary of the business,
+  services, and key pages written specifically for AI assistants and answer engines
+  (ChatGPT, Perplexity, Gemini, Claude) to read directly, including an explicit note that
+  this business does **not** do car-AC, TV, oven, or cleaning work, to prevent it being
+  confused with similarly-named businesses
+- Canonical tag + `robots` meta on every page
+- Open Graph + Twitter Card tags on every page for clean social/AI-preview cards
+
+### Schema.org structured data (JSON-LD) — for AEO/GEO answer engines
+- **HVACBusiness/LocalBusiness** — on every page (name, address, phone, hours, service
+  area, brands serviced) for consistent NAP entity recognition
+- **WebSite** — homepage
+- **BreadcrumbList** — every inner page
+- **Service** — each of the 6 individual service pages
+- **FAQPage** — the FAQ page and every service page's FAQ section (feeds Google's
+  "People Also Ask" and AI answer-box results directly)
+- **BlogPosting** — every blog article
+
+### ⚠️ Before going live
+- [ ] **Replace `SITE_URL` in `seo_module.py`** (currently a placeholder,
+  `https://www.ahmadacrepair.com`) with your real domain — this single change updates
+  canonical URLs, Open Graph URLs, and every schema `@id`/`url` field across all 19 pages
+  the next time the site is rebuilt from source
+- [ ] Update `robots.txt` and `sitemap.xml`'s hard-coded domain to match
+- [ ] Add real GPS coordinates for `geo.latitude`/`geo.longitude` in
+  `schema_organization()` (currently an approximate Al Olaya, Riyadh position)
+- [ ] Submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools
+
+### Off-page SEO (cannot be done in code — action checklist)
+- **Google Business Profile**: claim/verify a GBP listing with the exact NAP used on
+  this site, add real photos, and actively collect Google reviews
+- **Local citations**: list the business on Saudi directories (Maroof, Yellow Pages KSA,
+  Foursquare) with identical name/address/phone
+- **Backlinks**: reach out to Riyadh home-service blogs, real-estate/property-management
+  companies, and appliance retailers for referral links
+- **Social profiles**: create and link Instagram/Twitter/Facebook business pages (the
+  footer already has icon placeholders — update their `href`s once created), and add
+  those URLs to `schema_organization()`'s `sameAs` array
+- **Reviews**: genuinely collect and display customer reviews before adding any
+  Review/AggregateRating schema — fabricated review markup violates Google's guidelines
+  and was intentionally left out of this build for that reason
+
+## 🚀 Deploying to Vercel (clean URLs)
+
+`vercel.json` is included with `"cleanUrls": true`, so every page is reachable **without**
+the `.html` extension once deployed — e.g. `split-ac-repair.html` serves at
+`/split-ac-repair`, `index.html` serves at `/`. All internal links (navbar, footer,
+breadcrumbs, buttons, related-service/related-article cards) already point to these clean
+paths, and canonical tags, Open Graph URLs, and every schema.org URL field were updated to
+match, so there's no duplicate-content risk between the `.html` and clean versions.
+
+To deploy: push this folder to a Git repo and import it in Vercel (framework preset:
+**Other** — it's plain static HTML, no build step needed), or run `vercel` from inside
+this folder with the Vercel CLI. The actual files on disk keep their `.html` names —
+that's required for Vercel's clean-URL rewrite to find them — only the *links* are
+extension-less.
+
