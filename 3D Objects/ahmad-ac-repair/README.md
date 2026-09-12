@@ -199,14 +199,30 @@ English content, Arabic chips under the Arabic content, never mixed.
 - **BlogPosting** — every blog article
 
 ### ⚠️ Before going live
-- [ ] **Replace `SITE_URL` in `seo_module.py`** (currently a placeholder,
-  `https://www.ahmadacrepair.com`) with your real domain — this single change updates
-  canonical URLs, Open Graph URLs, and every schema `@id`/`url` field across all 19 pages
-  the next time the site is rebuilt from source
-- [ ] Update `robots.txt` and `sitemap.xml`'s hard-coded domain to match
+- [x] ~~Replace `SITE_URL` in `seo_module.py`~~ — now set to your real domain,
+  **`https://www.ahmedacrepairriyadh.com`**, and every canonical URL, Open Graph URL,
+  and schema `@id`/`url` field across all 19 pages was regenerated to match
+- [x] ~~Update `robots.txt` and `sitemap.xml`'s hard-coded domain~~ — done
 - [ ] Add real GPS coordinates for `geo.latitude`/`geo.longitude` in
   `schema_organization()` (currently an approximate Al Olaya, Riyadh position)
 - [ ] Submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools
+
+### 🩹 Fixing "Sitemap could not be read / 404" in Search Console
+This means Google tried to fetch the sitemap from your live domain and got a 404 — the
+file genuinely isn't reachable at that address yet. Before resubmitting in Search
+Console, check these in order:
+1. **Open `https://www.ahmedacrepairriyadh.com/sitemap.xml` directly in your browser.**
+   If that 404s too, the fix isn't in Search Console — it's in your hosting.
+2. Confirm `sitemap.xml` was actually uploaded to the **root** folder of your hosting
+   (same folder as `index.html`), not inside a subfolder like `/public` or `/website`.
+3. Confirm how you deployed:
+   - **Vercel** → `vercel.json` (included) makes clean URLs and routing work
+     automatically; just make sure `sitemap.xml` sits at the project root you deployed.
+   - **Regular hosting (cPanel/Hostinger/GoDaddy/etc.)** → `vercel.json` does **nothing**
+     here; it's a Vercel-only file. Use the included **`.htaccess`** instead (upload it
+     to the same root folder) — it makes Apache serve clean URLs (`/services` instead
+     of `/services.html`) the same way Vercel does.
+4. Once `sitemap.xml` loads correctly in a browser, resubmit it in Search Console.
 
 ### Off-page SEO (cannot be done in code — action checklist)
 - **Google Business Profile**: claim/verify a GBP listing with the exact NAP used on
@@ -222,18 +238,25 @@ English content, Arabic chips under the Arabic content, never mixed.
   Review/AggregateRating schema — fabricated review markup violates Google's guidelines
   and was intentionally left out of this build for that reason
 
-## 🚀 Deploying to Vercel (clean URLs)
+## 🚀 Deploying (clean URLs on Vercel *or* regular hosting)
 
-`vercel.json` is included with `"cleanUrls": true`, so every page is reachable **without**
-the `.html` extension once deployed — e.g. `split-ac-repair.html` serves at
-`/split-ac-repair`, `index.html` serves at `/`. All internal links (navbar, footer,
-breadcrumbs, buttons, related-service/related-article cards) already point to these clean
-paths, and canonical tags, Open Graph URLs, and every schema.org URL field were updated to
-match, so there's no duplicate-content risk between the `.html` and clean versions.
+Two deployment paths are supported — use whichever matches where this site actually lives:
 
-To deploy: push this folder to a Git repo and import it in Vercel (framework preset:
-**Other** — it's plain static HTML, no build step needed), or run `vercel` from inside
-this folder with the Vercel CLI. The actual files on disk keep their `.html` names —
-that's required for Vercel's clean-URL rewrite to find them — only the *links* are
-extension-less.
+**Option A — Vercel.** `vercel.json` (included, `"cleanUrls": true`) makes every page
+reachable without the `.html` extension automatically — e.g. `split-ac-repair.html`
+serves at `/split-ac-repair`, `index.html` serves at `/`. Push this folder to a Git repo
+and import it in Vercel (framework preset: **Other**, no build step needed), or run
+`vercel` from inside this folder with the CLI.
+
+**Option B — cPanel / Hostinger / GoDaddy / any Apache hosting.** `vercel.json` is
+ignored outside Vercel. Upload the included **`.htaccess`** file to the same root folder
+as `index.html` instead — it makes Apache's `mod_rewrite` do the same clean-URL job.
+Most shared hosting has `mod_rewrite` enabled by default; if clean URLs still don't work
+after uploading it, ask your host to confirm `mod_rewrite` is on for your account.
+
+Either way: the actual files on disk keep their `.html` names (that's what both
+`vercel.json` and `.htaccess` rewrite *to*) — only the visible links and browser-bar
+URLs are extension-less. All internal links (navbar, footer, breadcrumbs, buttons,
+related-service/related-article cards), canonical tags, Open Graph URLs, and every
+schema.org URL field already point to the clean paths.
 
