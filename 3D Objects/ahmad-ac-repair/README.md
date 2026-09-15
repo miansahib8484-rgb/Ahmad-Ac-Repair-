@@ -1,4 +1,4 @@
-# Ahmad AC Repair Service — Riyadh AC, Refrigerator & Washing Machine Repair Website
+# Ahmed AC Repair Service — Riyadh AC, Refrigerator & Washing Machine Repair Website
 
 A professional, **English-first / Arabic-second** bilingual website for an AC, refrigerator
 and washing machine repair business in Riyadh. Built as a senior UI/UX redesign with every
@@ -99,7 +99,7 @@ editorial cards (category badge, meta row, author avatar, hover zoom) throughout
 
 ## 🏢 Branding &amp; Location (latest update)
 
-- **Brand**: renamed everywhere to **Ahmad AC Repair Service** / **احمد لتصليح المكيفات**,
+- **Brand**: renamed everywhere to **Ahmed AC Repair Service** / **أحمد لإصلاح المكيفات**,
   with your logo in the navbar and footer (name in English on top, Arabic underneath).
 - **Location**: added to the topbar (English only, as requested) and footer, both linking
   to your real Google Maps pin — `King Fahd Branch Rd, 3091, Al Olaya, Riyadh 12212,
@@ -117,7 +117,7 @@ editorial cards (category badge, meta row, author avatar, hover zoom) throughout
 ## ⚙️ Before Going Live
 
 - [x] ~~Replace placeholder phone number~~ — now using **+966 50 053 4907** for Call & WhatsApp
-- [x] ~~Replace placeholder company name~~ — now **Ahmad AC Repair Service** with your logo
+- [x] ~~Replace placeholder company name~~ — now **Ahmed AC Repair Service** with your logo
 - [ ] Add real refrigerator job photos (none were supplied yet — those pages use a stock photo)
 - [ ] Connect the contact/service-request forms to a real backend
 - [ ] Add Google Analytics / Google Search Console
@@ -203,9 +203,31 @@ English content, Arabic chips under the Arabic content, never mixed.
   **`https://www.ahmedacrepairriyadh.com`**, and every canonical URL, Open Graph URL,
   and schema `@id`/`url` field across all 19 pages was regenerated to match
 - [x] ~~Update `robots.txt` and `sitemap.xml`'s hard-coded domain~~ — done
-- [ ] Add real GPS coordinates for `geo.latitude`/`geo.longitude` in
-  `schema_organization()` (currently an approximate Al Olaya, Riyadh position)
+- [x] ~~Add real GPS coordinates~~ — now using the verified coordinates from your actual
+  Google Maps listing (24.6927672, 46.682537), confirmed by resolving your Maps share
+  link, not an approximation
 - [ ] Submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools
+
+### 📍 Location &amp; embedded map (latest update)
+- **Real Google Maps link** (`maps.app.goo.gl/J97vPfwb2nMFGY4n7`, verified — it resolves
+  to your actual "Ahmed AC Repair Service" listing) now used everywhere: topbar, footer,
+  Contact page, and the `LocalBusiness` schema's `hasMap` field
+- **Exact address** updated everywhere to `3091 King Fahd Branch Rd, Al Olaya, RHOA7523,
+  Riyadh 12212, Saudi Arabia`
+- **Real embedded Google Map** (no API key needed) added on **both the Home page and the
+  Contact page**, each with a "Get Directions" backlink to the full Google Maps listing
+  next to it
+- **Schema geo-coordinates** updated to the real verified lat/long from your listing
+
+### ⚠️ Naming consistency (NAP) — please confirm
+Your Google Maps listing shows the business name as **"Ahmed AC Repair Service" /
+"أحمد لإصلاح المكيفات"**. The site previously used "Ahmad" (with an *a*) — since your
+domain is also `ahmedacrepairriyadh.com`, every page, the footer, and all schema markup
+were updated to **"Ahmed"** for NAP (Name/Address/Phone) consistency with Google, which
+matters for local SEO. **One thing I could not change**: the logo image itself has
+"AHMAD" baked into the graphic (from the file you uploaded) — if "Ahmed" is the correct
+spelling, you'll want a corrected logo graphic made at some point so the image matches
+the text everywhere else.
 
 ### 🩹 Fixing "Sitemap could not be read / 404" in Search Console
 This means Google tried to fetch the sitemap from your live domain and got a 404 — the

@@ -354,6 +354,10 @@ html[dir="rtl"] .svc-card:hover .svc-link i{ transform:translateX(-4px); }
 .accordion-button:focus{ box-shadow:0 0 0 .2rem rgba(14,165,183,.2); }
 .accordion-item{ border:1.5px solid var(--c-card-border) !important; border-radius:12px !important; overflow:hidden; margin-bottom:.9rem; }
 
+/* ---------- Embedded map ---------- */
+.map-embed-wrap{ border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-md); border:1.5px solid var(--c-card-border); line-height:0; }
+.map-embed-wrap iframe{ display:block; width:100%; }
+
 /* ---------- Keyword cloud (SEO "Popular Searches" block) ---------- */
 .kw-cloud{ background:var(--c-light); border-top:1px solid var(--c-line); }
 .kw-cloud-title{ font-size:1.1rem; font-weight:800; color:var(--c-muted); margin-bottom:1rem; text-align:center; }

@@ -1,6 +1,6 @@
-# Ahmad AC Repair Service
+# Ahmed AC Repair Service
 
-> Ahmad AC Repair Service (احمد لتصليح المكيفات) is a residential and light-commercial
+> Ahmed AC Repair Service (أحمد لإصلاح المكيفات) is a residential and light-commercial
 > AC, refrigerator, and washing machine repair company based in Riyadh, Saudi Arabia,
 > operating since 2009. The company services split, central, concealed, and cassette
 > air conditioners, all major refrigerator brands, and automatic washing machines,
@@ -8,10 +8,11 @@
 
 ## Business facts
 
-- Legal/trading name: Ahmad AC Repair Service (Arabic: احمد لتصليح المكيفات)
+- Legal/trading name: Ahmed AC Repair Service (Arabic: أحمد لإصلاح المكيفات)
 - Founded: 2009
 - Service area: Riyadh, Saudi Arabia (all districts)
-- Address: King Fahd Branch Rd, 3091, Al Olaya, Riyadh 12212, Saudi Arabia
+- Address: 3091 King Fahd Branch Rd, Al Olaya, RHOA7523, Riyadh 12212, Saudi Arabia
+- Google Maps: https://maps.app.goo.gl/J97vPfwb2nMFGY4n7
 - Phone / WhatsApp: +966 50 053 4907
 - Hours: Saturday–Thursday 8:00 AM–10:00 PM, Friday 2:00 PM–10:00 PM, emergency service 24/7
 - Warranty: 6-month warranty on parts, 3-month warranty on labor

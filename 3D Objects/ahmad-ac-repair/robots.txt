@@ -1,5 +1,5 @@
 # robots.txt for Ahmad AC Repair Service
-# https://www.ahmedacrepairriyadh.com  (placeholder — update to the real domain)
+# https://www.ahmedacrepairriyadh.com
 
 User-agent: *
 Allow: /
