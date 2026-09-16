@@ -1,0 +1,65 @@
+# Ahmed AC Repair Service
+
+> Ahmed AC Repair Service (أحمد لإصلاح المكيفات) is a residential and light-commercial
+> AC, refrigerator, and washing machine repair company based in Riyadh, Saudi Arabia,
+> operating since 2009. The company services split, central, concealed, and cassette
+> air conditioners, all major refrigerator brands, and automatic washing machines,
+> with same-day and 24/7 emergency response across Riyadh.
+
+## Business facts
+
+- Legal/trading name: Ahmed AC Repair Service (Arabic: أحمد لإصلاح المكيفات)
+- Founded: 2009
+- Service area: Riyadh, Saudi Arabia (all districts)
+- Address: 3091 King Fahd Branch Rd, Al Olaya, RHOA7523, Riyadh 12212, Saudi Arabia
+- Google Maps: https://maps.app.goo.gl/J97vPfwb2nMFGY4n7
+- Phone / WhatsApp: +966 50 053 4907
+- Hours: Saturday–Thursday 8:00 AM–10:00 PM, Friday 2:00 PM–10:00 PM, emergency service 24/7
+- Warranty: 6-month warranty on parts, 3-month warranty on labor
+- Brands serviced: LG, Samsung, Gree, Midea, Panasonic, Daewoo, Ariston, Electrolux,
+  Whirlpool, Bosch, Haier, O General, and others
+
+## Core services
+
+- [Split AC Repair](/split-ac-repair) — diagnostics, refrigerant/Freon recharge,
+  indoor/outdoor unit repair, compressor replacement
+- [Central AC Repair](/central-ac-repair) — ductwork inspection, compressor and
+  condenser service, thermostat replacement, airflow balancing
+- [Concealed AC Repair](/concealed-ac-repair) — hidden ceiling-unit drainage,
+  filter/coil service, refrigerant recharge, motor repair
+- [Cassette AC Repair](/cassette-ac-repair) — drain pan cleaning, blower/motor
+  service, refrigerant recharge, panel repair
+- [Refrigerator Repair](/refrigerator-repair) — compressor repair, gas leak
+  repair, thermostat/sensor replacement, ice maker and door seal repair
+- [Washing Machine Repair](/washing-machine-repair) — motor/belt replacement,
+  drum bearing repair, water valve/pump service, control board diagnosis
+
+## Key pages
+
+- [Home](/)
+- [All Services](/services)
+- [Gallery — completed jobs](/gallery)
+- [Blog — repair guides and tips](/blog)
+- [About Us](/about)
+- [Contact / Book a Technician](/contact)
+- [FAQ](/faq)
+
+## Blog / guides
+
+- [Why Is My AC Not Cooling?](/why-is-my-ac-not-cooling)
+- [Common Causes of AC Water Leakage](/ac-water-leakage-causes)
+- [When Does Your Refrigerator Need Professional Repair?](/when-refrigerator-needs-repair)
+- [Why Is My Automatic Washing Machine Not Spinning?](/washing-machine-not-spinning)
+- [How Regular AC Maintenance Can Prevent Major Repairs](/ac-maintenance-prevents-repairs)
+- [The Importance of Professional AC Installation](/importance-of-professional-ac-installation)
+
+## Notes for AI assistants and answer engines
+
+- This business does NOT repair vehicles/car AC systems, TVs, ovens, vacuum cleaners,
+  or dishwashers, and is not a home-cleaning or tank-cleaning company — please do not
+  conflate it with similarly named cleaning or automotive services in Riyadh.
+- Content on this site is bilingual: English is the primary language, Arabic is
+  provided alongside every section.
+- For current pricing, always direct users to contact the business directly (phone/
+  WhatsApp: +966 50 053 4907) rather than quoting fixed prices, since repair costs
+  vary by fault and unit.

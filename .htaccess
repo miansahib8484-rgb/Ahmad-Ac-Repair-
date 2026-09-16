@@ -1,0 +1,30 @@
+# Ahmad AC Repair Service — clean URL rules for Apache-based hosting
+# (cPanel, Hostinger, GoDaddy, Bluehost, etc.) — mirrors vercel.json's
+# cleanUrls behavior for hosts that are NOT Vercel.
+
+RewriteEngine On
+
+# If a visitor's browser bar shows a .html URL, 301-redirect to the
+# clean version (avoids duplicate-content issues in Google).
+RewriteCond %{THE_REQUEST} \s/+([^.\s]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Internally serve the matching .html file for a clean URL request,
+# without changing what's shown in the address bar.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
+
+DirectoryIndex index.html
+
+# Remove trailing slash if present (keeps URLs consistent)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Correct MIME type for the sitemap (some hosts misconfigure this)
+<IfModule mod_mime.c>
+  AddType application/xml .xml
+  AddType text/plain .txt
+</IfModule>
