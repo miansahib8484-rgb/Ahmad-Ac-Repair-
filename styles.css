@@ -486,3 +486,39 @@ html[dir="rtl"] .svc-card:hover .svc-link i{ transform:translateX(-4px); }
 @media (max-width:340px){
   .navbar-brand .brand-ar{ display:none; }
 }
+
+.local-context{ background:var(--c-light); border-top:1px solid var(--c-line); }
+.local-context h2{ font-size:1.3rem; font-weight:800; color:var(--c-dark, #1a1a1a); margin-bottom:.75rem; }
+.local-context p{ color:var(--c-muted); line-height:1.7; margin-bottom:0; }
+.local-context a{ color:var(--c-primary, #0d6efd); font-weight:600; }
+
+.found-us{ background:#fff; }
+.found-us-title{ font-size:1.2rem; font-weight:800; text-align:center; margin-bottom:.4rem; }
+.found-us-sub{ text-align:center; color:var(--c-muted); font-size:.9rem; margin-bottom:1.5rem; }
+.found-us-group{ max-width:780px; margin:0 auto 1.25rem auto; }
+.found-us-group h4{ font-size:.85rem; font-weight:700; color:var(--c-muted); text-transform:uppercase; letter-spacing:.03em; margin-bottom:.5rem; text-align:center; }
+.kw-chips-sm{ flex-wrap:wrap; gap:.35rem; justify-content:center; }
+.kw-chips-sm span{
+    display:inline-block; padding:.3rem .7rem; background:var(--c-light); border:1px solid var(--c-line);
+    border-radius:999px; font-size:.78rem; color:var(--c-muted);
+}
+.kw-chips-sm.ar-only span{ font-family:var(--font-ar) !important; }
+
+.quick-answer-box{
+    background:#F0F7F8; border-left:4px solid var(--c-primary, #0d6efd); border-radius:6px;
+    padding:1rem 1.25rem; margin:1.25rem 0 1.75rem 0; font-size:.98rem; line-height:1.6;
+}
+.quick-answer-box[dir="rtl"], .quick-answer-box p.ar-only{ border-left:none; border-right:4px solid var(--c-primary, #0d6efd); }
+
+.review-badge-inline{
+    display:inline-flex; align-items:center; gap:.4rem; margin:.5rem 0 .75rem 0;
+    font-size:.92rem; color:#fff;
+}
+.review-badge-inline .stars{ color:#FFC542; letter-spacing:1px; }
+.review-section{ background:#fff; }
+.review-box{
+    max-width:560px; margin:0 auto; text-align:center; background:#F7FBFB;
+    border:1px solid var(--c-line); border-radius:12px; padding:2rem 1.5rem;
+}
+.review-stars{ font-size:1.6rem; color:#FFC542; letter-spacing:3px; margin-bottom:.4rem; }
+.review-stat{ font-weight:800; font-size:1.15rem; margin-bottom:.35rem; }
